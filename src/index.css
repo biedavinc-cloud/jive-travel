@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    --primary: 3 80% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 7%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 42%;
+    --accent: 3 80% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 3 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 87%;
+    --input: 0 0% 87%;
+    --ring: 3 80% 50%;
+    --navy: 0 0% 7%;
+    --gold: 3 80% 50%;
+    --gold-hover: 2 82% 47%;
+    --green: 3 80% 50%;
+    --green-hover: 2 82% 47%;
+    --red: 3 80% 50%;
+    --radius: 0.75rem;
+    --font-heading: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html { font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif; }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .bg-navy { background-color: #111111; }
+  .bg-navy-soft { background-color: #1f1f1f; }
+  .text-gold { color: #E5231B; }
+  .bg-gold { background-color: #E5231B; }
+  .border-gold { border-color: #E5231B; }
+  .ring-gold { --tw-ring-color: #E5231B; }
+  .text-green { color: #E5231B; }
+  .bg-green { background-color: #E5231B; }
+  .text-red-accent { color: #E5231B; }
+  .bg-red-accent { background-color: #E5231B; }
+  .gold-glow { box-shadow: 0 0 0 1px rgba(229,35,27,0.35), 0 8px 30px -8px rgba(229,35,27,0.2); }
+  .gold-glow-hover:hover { box-shadow: 0 0 0 1px rgba(229,35,27,0.55), 0 12px 40px -8px rgba(229,35,27,0.3); }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+.marquee-container:hover .animate-marquee {
+  animation-play-state: paused;
+}

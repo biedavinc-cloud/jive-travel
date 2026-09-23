@@ -1,0 +1,64 @@
+{
+  "name": "VisaRule",
+  "type": "object",
+  "properties": {
+    "nationality": {
+      "type": "string",
+      "description": "Applicant nationality, or 'ANY' for all nationalities"
+    },
+    "destination_country": {
+      "type": "string"
+    },
+    "visa_status": {
+      "type": "string",
+      "enum": [
+        "visa_required",
+        "visa_free",
+        "evisa",
+        "eta",
+        "visa_on_arrival"
+      ]
+    },
+    "max_stay_days": {
+      "type": "number"
+    },
+    "government_fee_usd": {
+      "type": "number"
+    },
+    "processing_standard": {
+      "type": "string"
+    },
+    "processing_express": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "destination_country",
+    "visa_status"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

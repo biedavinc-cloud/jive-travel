@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /admin-dashboard
+Disallow: /parametres
+Disallow: /profil
+Disallow: /coffre-fort
+Disallow: /messagerie
+Disallow: /mes-demandes
+Disallow: /alertes
+Disallow: /identity-verification
+
+# Target markets: India, East Asia, Latin America
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+Sitemap: https://jive-global-pass.base44.app/sitemap.xml

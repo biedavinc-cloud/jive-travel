@@ -1,0 +1,210 @@
+{
+  "name": "VisaApplication",
+  "type": "object",
+  "properties": {
+    "origin_country": {
+      "type": "string"
+    },
+    "residence_country": {
+      "type": "string"
+    },
+    "destination_country": {
+      "type": "string"
+    },
+    "travel_purpose": {
+      "type": "string"
+    },
+    "visa_type": {
+      "type": "string",
+      "enum": [
+        "tourism",
+        "business",
+        "study",
+        "work",
+        "transit"
+      ]
+    },
+    "urgency": {
+      "type": "string",
+      "enum": [
+        "standard",
+        "express",
+        "urgent"
+      ],
+      "default": "standard"
+    },
+    "adults": {
+      "type": "number",
+      "default": 1
+    },
+    "children": {
+      "type": "number",
+      "default": 0
+    },
+    "departure_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "return_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "stay_duration": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "contact_name": {
+      "type": "string"
+    },
+    "marital_status": {
+      "type": "string",
+      "enum": [
+        "single",
+        "married",
+        "divorced",
+        "widowed"
+      ]
+    },
+    "occupation": {
+      "type": "string"
+    },
+    "employer": {
+      "type": "string"
+    },
+    "employer_address": {
+      "type": "string"
+    },
+    "monthly_income": {
+      "type": "string"
+    },
+    "education_level": {
+      "type": "string",
+      "enum": [
+        "high_school",
+        "bachelor",
+        "master",
+        "phd",
+        "other"
+      ]
+    },
+    "previous_travel": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no"
+      ]
+    },
+    "travelers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "last_name": {
+            "type": "string"
+          },
+          "first_name": {
+            "type": "string"
+          },
+          "birth_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "passport_number": {
+            "type": "string"
+          },
+          "passport_issue": {
+            "type": "string",
+            "format": "date"
+          },
+          "passport_expiry": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "total_price_usd": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "submitted",
+        "processing",
+        "review",
+        "issued",
+        "rejected"
+      ],
+      "default": "submitted"
+    }
+  },
+  "required": [
+    "origin_country",
+    "destination_country",
+    "visa_type"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
